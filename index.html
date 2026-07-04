@@ -428,23 +428,37 @@ function show(id){
 /* ===== Paso D: documentos + beneficios ===== */
 const DOCS = [
  {g:'🏦 PATRIMONIO (lo que tienes)', items:[
-  {id:'d1', t:'Certificados bancarios de cuentas de ahorro/corriente e inversiones', s:'Saldo al 31-dic-2025. Los emite cada banco (app o sucursal), incluye Nequi/Daviplata, CDTs y fondos.'},
-  {id:'d2', t:'Documentos de bienes inmuebles', s:'Recibo del impuesto predial 2025, escrituras o factura de compra de casa, apartamento o lote.'},
-  {id:'d3', t:'Documentos de vehículos', s:'Impuesto vehicular o tarjeta de propiedad (el valor se toma de tablas oficiales).'}]},
+  {id:'d1', t:'Certificados bancarios de cuentas de ahorro/corriente e inversiones', s:'Saldo al 31-dic-2025. Los emite cada banco (app o sucursal), incluye Nequi/Daviplata, CDTs y fondos.',
+   c:['Abre la app de tu banco → menú «Certificados» o «Documentos» → busca <b>«Certificado de saldos a 31-dic-2025»</b> (a veces se llama «certificado tributario»). Es gratis y llega al correo en minutos.','En Nequi: app → tu perfil (arriba izquierda) → «Certificados» → certificado de saldos. En Daviplata: app → «Más» → certificados.','Repite por CADA banco/fondo donde tengas plata. Si no aparece en la app, llama a la línea o pídelo en sucursal (gratis, máx. 3 días).']},
+  {id:'d2', t:'Documentos de bienes inmuebles', s:'Recibo del impuesto predial 2025, escrituras o factura de compra de casa, apartamento o lote.',
+   c:['El recibo del <b>predial 2025</b> se descarga en la página de tu ciudad (en Bogotá: oficina virtual de la Secretaría de Hacienda, con tu cédula y dirección).','La <b>escritura</b> la tienes en tus papeles de compra; si la perdiste, la notaría donde firmaste te da copia (~$20k).','Con cualquiera de los dos basta para empezar — el que tengas más a mano.']},
+  {id:'d3', t:'Documentos de vehículos', s:'Impuesto vehicular o tarjeta de propiedad (el valor se toma de tablas oficiales).',
+   c:['El recibo del <b>impuesto vehicular 2025</b> se descarga del portal de impuestos de tu departamento (en Bogotá: vehiculos.shd.gov.co) con la placa y tu cédula.','O simplemente fotografía la <b>tarjeta de propiedad</b> por ambas caras — con eso es suficiente.']}]},
  {g:'💳 DEUDAS (bajan tu patrimonio)', items:[
-  {id:'d4', t:'Soportes de deudas', s:'Letras, pagarés, hipotecas, certificado de saldo de créditos al 31-dic-2025 (el banco lo emite gratis).'}]},
+  {id:'d4', t:'Soportes de deudas', s:'Letras, pagarés, hipotecas, certificado de saldo de créditos al 31-dic-2025 (el banco lo emite gratis).',
+   c:['App del banco → «Certificados» → <b>«Certificado de saldo de obligaciones a 31-dic-2025»</b>. Gratis e inmediato en la mayoría de bancos.','Incluye TODO: tarjetas de crédito, libre inversión, hipoteca, crédito de vehículo. Un certificado por entidad.','¿Deuda con un particular? Sirve la letra o pagaré firmado.']}]},
  {g:'💵 INGRESOS (lo que te entró)', items:[
-  {id:'d5', t:'Certificado de ingresos y retenciones 2025 (Formulario 220)', s:'Te lo entrega tu empleador. Es EL documento clave si eres empleado.'},
-  {id:'d6', t:'Certificados de salarios, indemnizaciones y primas especiales', s:'Indemnizaciones por accidente de trabajo o enfermedad, primas especiales, bonificaciones.'},
-  {id:'d7', t:'Cuentas de cobro / facturas (independientes)', s:'Si facturaste por honorarios o servicios, el resumen del año.'},
-  {id:'d8', t:'Certificados de rendimientos financieros', s:'Intereses que te pagaron bancos, CDTs, fondos o plataformas. Cada entidad lo emite.'}]},
+  {id:'d5', t:'Certificado de ingresos y retenciones 2025 (Formulario 220)', s:'Te lo entrega tu empleador. Es EL documento clave si eres empleado.',
+   c:['Pídelo a <b>Recursos Humanos o Nómina</b> de tu empresa: «necesito mi certificado de ingresos y retenciones 2025 (formulario 220)».','Están OBLIGADOS a dártelo (muchas empresas lo envían solas en marzo — revisa tu correo, puede que ya lo tengas).','¿Trabajaste en 2+ empresas en 2025? Necesitas uno de CADA una.']},
+  {id:'d6', t:'Certificados de salarios, indemnizaciones y primas especiales', s:'Indemnizaciones por accidente de trabajo o enfermedad, primas especiales, bonificaciones.',
+   c:['Si tuviste indemnización por accidente/enfermedad: la certifica la <b>ARL</b> (línea de atención o portal).','Primas o bonificaciones especiales: las certifica tu <b>empleador</b> (mismo camino del formulario 220).','Solo aplica si tuviste estos pagos — si no, marca este como no aplicable y sigue.']},
+  {id:'d7', t:'Cuentas de cobro / facturas (independientes)', s:'Si facturaste por honorarios o servicios, el resumen del año.',
+   c:['Reúne las <b>cuentas de cobro o facturas</b> que emitiste en 2025 (las tienes tú o tu contador).','Si facturas electrónicamente: entra a la DIAN (muisca.dian.gov.co) → Facturación Electrónica → consulta tus documentos emitidos y descarga el año.','Un Excel o lista simple con fecha, cliente y valor también nos sirve para empezar.']},
+  {id:'d8', t:'Certificados de rendimientos financieros', s:'Intereses que te pagaron bancos, CDTs, fondos o plataformas. Cada entidad lo emite.',
+   c:['App de cada banco/fondo → «Certificados» → <b>«Certificado de rendimientos financieros 2025»</b> (o «certificado tributario»). Gratis.','No olvides: CDTs, fondos de inversión, cuentas de ahorro que pagan interés y plataformas (Ualá, Nu, RappiPay, etc. — todas lo emiten en su app).']}]},
  {g:'🎯 BENEFICIOS (bajan tu impuesto)', items:[
-  {id:'d9', t:'Certificados de pagos de salud', s:'Medicina prepagada o pólizas de salud: certificado anual de la entidad (Colsanitas, Sura, etc.).'},
-  {id:'d10', t:'Certificado de intereses de crédito de vivienda', s:'Lo emite el banco de tu hipoteca o leasing habitacional. Deduce hasta $59,7M.'},
-  {id:'d11', t:'Facturas electrónicas de compras 2025', s:'Compras a tu nombre con factura electrónica: deducen el 1%. Descárgalas del portal de la DIAN.'},
-  {id:'d12', t:'Certificación de dependientes económicos', s:'Registro civil de hijos, certificado de estudios (18–23 años), certificación médica o declaración juramentada según el caso.'},
-  {id:'d13', t:'Certificados de aportes AFC y pensión voluntaria', s:'Los emite el fondo (Porvenir, Protección, banco con cuenta AFC).'},
-  {id:'d14', t:'Certificado del 4×1000 (GMF)', s:'El banco certifica cuánto pagaste: el 50% es deducible.'}]}
+  {id:'d9', t:'Certificados de pagos de salud', s:'Medicina prepagada o pólizas de salud: certificado anual de la entidad (Colsanitas, Sura, etc.).',
+   c:['Portal o app de tu prepagada/aseguradora → «Certificados» → <b>«Certificado tributario 2025»</b> (Colsanitas, Sura, Coomeva, Allianz — todas lo tienen en línea).','Si no aparece, llama a la línea de servicio y pídelo al correo: es gratis y están acostumbrados a la solicitud en esta época.']},
+  {id:'d10', t:'Certificado de intereses de crédito de vivienda', s:'Lo emite el banco de tu hipoteca o leasing habitacional. Deduce hasta $59,7M.',
+   c:['App o portal del banco de tu hipoteca → «Certificados» → <b>«Certificado de intereses y corrección monetaria 2025»</b> (para declaración de renta).','Aplica también para <b>leasing habitacional</b>. Gratis e inmediato en Bancolombia, Davivienda, BBVA, etc.']},
+  {id:'d11', t:'Facturas electrónicas de compras 2025', s:'Compras a tu nombre con factura electrónica: deducen el 1%. Descárgalas del portal de la DIAN.',
+   c:['Entra a <b>muisca.dian.gov.co → Facturación Electrónica</b> (necesitas usuario DIAN; si no tienes, te guiamos para crearlo).','En «Documentos recibidos» filtra el año 2025: ahí están TODAS las facturas electrónicas hechas a tu cédula.','No necesitas imprimirlas una a una: con el consolidado basta. Nosotros lo revisamos contigo.']},
+  {id:'d12', t:'Certificación de dependientes económicos', s:'Registro civil de hijos, certificado de estudios (18–23 años), certificación médica o declaración juramentada según el caso.',
+   c:['Hijos menores de 18: <b>registro civil</b> (copia que tengas; si no, en registraduría o notaría).','Hijos de 18–23 estudiando: <b>certificado de estudios</b> vigente (lo emite la universidad/colegio en línea).','Cónyuge o padres que dependen de ti: <b>declaración juramentada en notaría</b> (~$30–50k) o certificación de contador.','¿Dudas de quién te sirve como dependiente? Escríbenos: es de lo que más impuesto ahorra.']},
+  {id:'d13', t:'Certificados de aportes AFC y pensión voluntaria', s:'Los emite el fondo (Porvenir, Protección, banco con cuenta AFC).',
+   c:['App o portal de tu fondo (Porvenir, Protección, Skandia, Colfondos) → «Certificados» → <b>«Certificado tributario de aportes 2025»</b>.','Si tu cuenta AFC es de un banco (Bancolombia, Davivienda...), el certificado sale en la app del banco.','Solo aplica si hiciste aportes voluntarios — los obligatorios de nómina ya vienen en el formulario 220.']},
+  {id:'d14', t:'Certificado del 4×1000 (GMF)', s:'El banco certifica cuánto pagaste: el 50% es deducible.',
+   c:['App del banco → «Certificados» → <b>«Certificado GMF (4×1000) 2025»</b>. Gratis e inmediato.','Pídelo en cada banco donde muevas plata — se suman todos.']}]}
 ];
 
 const BENEF = [
@@ -468,7 +482,7 @@ function pintaDocs(){
     `<div class="grupo">${g.g}</div>` + g.items.map(d =>
       `<div class="doc" id="doc_${d.id}">
         <input type="checkbox" onchange="chk('${d.id}',this.checked)">
-        <div class="dTxt">${d.t}<small>${d.s}</small><div class="dFile" id="f_${d.id}"></div></div>
+        <div class="dTxt" onclick="verComo('${d.id}')" style="cursor:pointer">${d.t}<small>${d.s} <u style="color:#4f46e5;white-space:nowrap">❓ ¿Cómo lo pido?</u></small><div class="dFile" id="f_${d.id}"></div></div>
         <button class="adj" onclick="document.getElementById('in_${d.id}').click()">📎 Adjuntar</button>
         <input type="file" id="in_${d.id}" multiple hidden onchange="adjunta('${d.id}',this)">
       </div>`).join('')
@@ -490,6 +504,32 @@ function adjunta(id,inp){
   doc.querySelector('input[type=checkbox]').checked = true;
   document.getElementById('f_'+id).textContent = '✓ ' + noms;
   progDocs();
+}
+function verComo(id){
+  const d = DOCS.flatMap(g=>g.items).find(x=>x.id===id);
+  if(!d || !d.c) return;
+  let ov = document.getElementById('comoOv');
+  if(!ov){
+    ov = document.createElement('div');
+    ov.id = 'comoOv';
+    ov.style.cssText = 'position:fixed;inset:0;background:rgba(15,23,42,.65);z-index:999;display:flex;align-items:center;justify-content:center;padding:16px';
+    ov.addEventListener('click', e => { if(e.target === ov) ov.style.display = 'none'; });
+    document.body.appendChild(ov);
+  }
+  ov.innerHTML = `<div style="background:#fff;border-radius:14px;max-width:540px;width:100%;max-height:82vh;overflow:auto;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+    <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start">
+      <b style="font-size:1rem;line-height:1.3">📄 ${d.t}</b>
+      <button onclick="document.getElementById('comoOv').style.display='none'" style="border:none;background:#eef2ff;color:#4338ca;border-radius:8px;padding:4px 12px;cursor:pointer;font-weight:800;font-size:1rem">✕</button>
+    </div>
+    <p style="color:#64748b;font-size:.85rem;margin:8px 0 12px">${d.s}</p>
+    <div style="background:#f1f5f9;border-radius:10px;padding:14px;font-size:.9rem">
+      <b>📍 ¿Dónde y cómo lo pides?</b>
+      <ol style="margin:10px 0 0 18px;padding:0">${d.c.map(p=>`<li style="margin:8px 0;line-height:1.45">${p}</li>`).join('')}</ol>
+    </div>
+    <a href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Hola RentaIA 👋 necesito ayuda para conseguir este documento: ' + d.t)}" target="_blank" style="display:block;text-align:center;background:#25d366;color:#fff;font-weight:800;border-radius:10px;padding:12px;margin-top:14px;text-decoration:none">💬 No lo encuentro, ayúdenme</a>
+    <p style="color:#94a3b8;font-size:.72rem;text-align:center;margin-top:8px">Todos estos certificados son gratuitos (salvo copias de notaría). Nunca pagues por ellos a terceros.</p>
+  </div>`;
+  ov.style.display = 'flex';
 }
 function progDocs(){
   const all = DOCS.flatMap(g=>g.items);
