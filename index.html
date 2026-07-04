@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RentaIA — Tu declaración de renta 2026 lista, sin enredos y pagando lo justo</title>
+<meta name="description" content="Diagnóstico gratis: descubre si debes declarar renta en 2026, cuándo vence tu plazo y qué documentos necesitas. Te la hacemos desde $99.000.">
+<style>
+  :root{--p:#059669;--p2:#047857;--d:#0f172a;--g:#64748b;--bg:#ecfdf5;--line:#a7f3d0;--warn:#d97706;--warnbg:#fef3c7;--bad:#dc2626;--badbg:#fee2e2;--okbg:#ecfdf5;--amber:#fbbf24;}
+  *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Segoe UI,Roboto,sans-serif;}
+  body{background:var(--bg);color:var(--d);line-height:1.55;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 18px;}
+
+  /* ===== HERO ===== */
+  header{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;padding:56px 0 48px;text-align:center;}
+  .logo{font-size:.85rem;letter-spacing:3px;font-weight:800;opacity:.9;}
+  header h1{font-size:2.1rem;margin:10px 0 12px;line-height:1.2;}
+  header p{font-size:1.08rem;opacity:.95;max-width:600px;margin:0 auto;}
+  .heroBadge{display:inline-block;margin-top:14px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 16px;font-size:.82rem;font-weight:700;}
+  .ctaHero{display:inline-block;margin:22px 8px 0;background:var(--amber);color:#422006;text-decoration:none;padding:14px 30px;border-radius:12px;font-weight:800;font-size:1.02rem;}
+  .ctaHero.sec{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.4);}
+
+  /* ===== SECCIONES ===== */
+  section{padding:44px 0;}
+  h2{font-size:1.45rem;text-align:center;margin-bottom:6px;}
+  .sub2{text-align:center;color:var(--g);font-size:.92rem;margin-bottom:24px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .vCard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center;}
+  .vCard .ic{font-size:1.7rem;}
+  .vCard b{display:block;margin:6px 0 4px;}
+  .vCard p{font-size:.86rem;color:var(--g);}
+
+  /* ===== FUNNEL ===== */
+  #funnel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 6px 24px rgba(5,150,105,.12);max-width:520px;margin:0 auto;}
+  .tag{font-size:.72rem;letter-spacing:2px;color:var(--p);font-weight:800;text-align:center;}
+  #funnel h3{font-size:1.25rem;margin:8px 0 4px;text-align:center;}
+  .sub{color:var(--g);font-size:.88rem;margin-bottom:16px;text-align:center;}
+  .paso{display:none;}
+  .paso.on{display:block;}
+  .lbl{font-weight:700;font-size:.9rem;margin:14px 0 6px;}
+  input[type=text],input[type=tel]{width:100%;padding:13px;font-size:1.05rem;border:2px solid var(--line);border-radius:12px;}
+  input:focus{outline:none;border-color:var(--p);}
+  #ced{text-align:center;font-weight:800;letter-spacing:3px;font-size:1.3rem;}
+  .hint{font-size:.76rem;color:var(--g);margin-top:6px;}
+  .fechaBox{margin-top:14px;text-align:center;display:none;}
+  .fecha{font-size:1.45rem;font-weight:900;color:var(--p2);}
+  .dias{font-size:.95rem;font-weight:700;margin:8px 0;padding:9px;border-radius:10px;}
+  .dias.ok{background:var(--okbg);color:var(--p2);} .dias.warn{background:var(--warnbg);color:var(--warn);} .dias.bad{background:var(--badbg);color:var(--bad);}
+  .sancion{font-size:.8rem;color:var(--g);margin:8px 0;}
+  .sancion b{color:var(--bad);}
+  .btn{display:block;width:100%;margin-top:12px;padding:14px;background:var(--p);color:#fff;border:none;border-radius:12px;font-weight:800;font-size:1rem;cursor:pointer;text-align:center;text-decoration:none;}
+  .btn.wa{background:#25d366;}
+  .btn.sec{background:#fff;color:var(--p2);border:1px solid var(--line);font-weight:700;font-size:.9rem;padding:12px;}
+  .prog{display:flex;gap:5px;margin:14px 0 10px;}
+  .prog i{flex:1;height:5px;border-radius:3px;background:#e2e8f0;}
+  .prog i.done{background:var(--p);}
+  .qNum{font-size:.75rem;color:var(--g);font-weight:700;letter-spacing:1px;}
+  .qTxt{font-size:1.05rem;font-weight:800;margin:6px 0 8px;line-height:1.35;}
+  .qExp{font-size:.85rem;color:var(--g);line-height:1.5;background:#f8fafc;border-left:3px solid var(--p);padding:10px 12px;border-radius:0 10px 10px 0;margin-bottom:8px;}
+  .qExp b{color:var(--d);}
+  details{margin:8px 0;font-size:.83rem;}
+  summary{cursor:pointer;color:var(--p2);font-weight:700;}
+  details div{color:var(--g);line-height:1.5;padding:8px 0 0 4px;}
+  .opts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px;}
+  .opts button{padding:13px 6px;border:2px solid var(--line);background:#fff;border-radius:12px;font-weight:800;font-size:.92rem;cursor:pointer;}
+  .opts button:hover{border-color:var(--p);background:var(--okbg);}
+  .back{background:none;border:none;color:var(--g);font-size:.8rem;cursor:pointer;margin-top:10px;text-decoration:underline;}
+  .resTitle{font-size:1.25rem;font-weight:900;text-align:center;padding:14px;border-radius:12px;margin-bottom:12px;}
+  .resTitle.si{background:var(--badbg);color:var(--bad);}
+  .resTitle.gris{background:var(--warnbg);color:var(--warn);}
+  .resTitle.no{background:var(--okbg);color:var(--p2);}
+  .motivo{font-size:.87rem;background:#f8fafc;border-radius:10px;padding:10px 12px;margin:6px 0;line-height:1.45;}
+  .motivo b{color:var(--bad);}
+  ol.pasos{margin:10px 0 4px 20px;font-size:.88rem;line-height:1.7;}
+  ol.pasos li b{color:var(--p2);}
+  .leadBox{margin-top:14px;background:var(--okbg);border:1px solid var(--line);border-radius:12px;padding:14px;}
+  .leadBox p{font-size:.85rem;font-weight:700;margin-bottom:4px;}
+  .leadBox small{color:var(--g);display:block;margin-bottom:8px;}
+  .precio{display:flex;gap:8px;margin-top:10px;}
+  .precio div{flex:1;border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center;font-size:.78rem;color:var(--g);}
+  .precio div b{display:block;font-size:1.05rem;color:var(--d);}
+  .precio div.rec{border-color:var(--p);background:var(--okbg);}
+  .precio div.rec::before{content:'RECOMENDADO';font-size:.6rem;color:var(--p);font-weight:800;letter-spacing:1px;}
+  .grupo{margin:14px 0 6px;font-size:.8rem;font-weight:800;color:var(--p2);letter-spacing:1px;}
+  .doc{display:flex;align-items:flex-start;gap:8px;padding:9px 10px;border:1px solid #e2e8f0;border-radius:10px;margin-bottom:6px;font-size:.84rem;line-height:1.4;}
+  .doc.tiene{border-color:var(--p);background:var(--okbg);}
+  .doc input[type=checkbox]{margin-top:3px;width:16px;height:16px;accent-color:var(--p);}
+  .doc .dTxt{flex:1;}
+  .doc .dTxt small{display:block;color:var(--g);font-size:.74rem;}
+  .doc .dFile{font-size:.72rem;color:var(--p2);font-weight:700;word-break:break-all;}
+  .doc .adj{border:1px solid var(--line);background:#fff;color:var(--p2);border-radius:8px;padding:5px 8px;font-size:.72rem;font-weight:700;cursor:pointer;white-space:nowrap;}
+  .benef{border:1px solid #e2e8f0;border-radius:10px;padding:10px 12px;margin-bottom:8px;font-size:.84rem;line-height:1.5;}
+  .benef b.tit{color:var(--p2);display:block;margin-bottom:2px;}
+  .benef small{color:var(--g);display:block;margin-top:4px;}
+
+  /* ===== CÓMO FUNCIONA / PLANES ===== */
+  .planes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;text-align:center;display:flex;flex-direction:column;}
+  .plan.dest{border:2px solid var(--p);position:relative;}
+  .plan.dest::before{content:'MÁS PEDIDO';position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--p);color:#fff;font-size:.66rem;font-weight:800;letter-spacing:1px;padding:3px 12px;border-radius:999px;}
+  .plan .pr{font-size:1.7rem;font-weight:900;color:var(--p2);margin:8px 0 2px;}
+  .plan .ex{font-size:.75rem;color:var(--warn);font-weight:700;margin-bottom:8px;}
+  .plan p{font-size:.85rem;color:var(--g);flex:1;}
+  .plan a{display:block;margin-top:14px;background:var(--p);color:#fff;text-decoration:none;padding:11px;border-radius:10px;font-weight:800;}
+  .disc{background:var(--warnbg);border:1px solid #fcd34d;color:#92400e;border-radius:12px;padding:14px 16px;font-size:.83rem;margin-top:20px;line-height:1.5;}
+  .garantia{text-align:center;font-size:.88rem;color:var(--p2);font-weight:700;margin-top:16px;}
+  footer{text-align:center;color:var(--g);padding:34px 0;font-size:.8rem;line-height:1.6;}
+  @media(max-width:680px){.grid3,.planes{grid-template-columns:1fr;}header h1{font-size:1.6rem;}}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header>
+  <div class="wrap">
+    <div class="logo">RENTAIA</div>
+    <h1>Tu declaración de renta 2026, lista y pagando lo justo</h1>
+    <p>Tú solo envías tus certificados por WhatsApp. Nosotros la elaboramos, la optimizamos con todas las deducciones legales y te acompañamos a presentarla. <b>Desde $99.000</b> — menos que la sanción mínima por un día de retraso ($523.740).</p>
+    <div class="heroBadge">⏰ Temporada AG2025: 12 de agosto – 26 de octubre de 2026</div>
+    <br>
+    <a class="ctaHero" href="#funnel">¿Debo declarar? Averígualo gratis en 1 minuto →</a>
+    <a class="ctaHero sec" href="https://wa.me/573125524920?text=Hola%20RentaIA%20👋%20quiero%20que%20me%20hagan%20mi%20declaraci%C3%B3n%20de%20renta">💬 Hablar ya por WhatsApp</a>
+  </div>
+</header>
+
+<!-- ============ POR QUÉ ============ -->
+<section class="wrap">
+  <h2>¿Por qué con RentaIA?</h2>
+  <div class="sub2">La mayoría de personas paga de más o paga sanciones por miedo al trámite. Eso se acaba hoy.</div>
+  <div class="grid3">
+    <div class="vCard"><div class="ic">🔍</div><b>Diagnóstico gratis</b><p>Te decimos si estás obligado a declarar, cuándo vence tu plazo y qué papeles necesitas. Sin costo.</p></div>
+    <div class="vCard"><div class="ic">📊</div><b>Ahorro a la vista</b><p>Comparamos cuánto pagarías sin optimizar vs. optimizado: dependientes, vivienda, AFC, prepagada, 1% de facturas.</p></div>
+    <div class="vCard"><div class="ic">🤝</div><b>Trato directo y humano</b><p>Todo por WhatsApp, con una persona real. Borrador en 24 h y acompañamiento hasta que quede presentada.</p></div>
+  </div>
+</section>
+
+<!-- ============ FUNNEL INTERACTIVO ============ -->
+<section class="wrap">
+  <div id="funnel">
+    <div class="tag">DIAGNÓSTICO GRATIS · DECLARACIÓN DE RENTA 2026 (AÑO GRAVABLE 2025)</div>
+
+    <!-- PASO A: CÉDULA → FECHA -->
+    <div class="paso on" id="pA">
+      <h3>¿Debes declarar renta este año?</h3>
+      <div class="sub">Escribe tu número de cédula y te decimos <b>cuándo vence tu plazo</b> y luego, en 7 preguntas, <b>si estás obligado a declarar</b>.</div>
+      <input id="ced" type="text" inputmode="numeric" placeholder="Número de cédula" oninput="calcFecha()">
+      <div class="hint">🔒 Solo usamos los <b>2 últimos dígitos</b> para buscar tu fecha en el calendario DIAN. No guardamos ni enviamos tu cédula.</div>
+      <div class="fechaBox" id="fBox">
+        <div class="lbl">Tu fecha límite es:</div>
+        <div class="fecha" id="fecha"></div>
+        <div class="dias" id="dias"></div>
+        <div class="sancion">Declarar <b>un solo día tarde</b> cuesta mínimo <b>$523.740</b> de sanción (10 UVT), aunque tu declaración dé $0.</div>
+        <button class="btn" onclick="irQuiz()">Ahora dime si debo declarar →</button>
+        <button class="btn sec" onclick="irDocs()">📄 Ya sé que declaro: ver papeles y cómo pagar menos</button>
+      </div>
+    </div>
+
+    <!-- PASO B: QUIZ -->
+    <div class="paso" id="pB">
+      <div class="prog" id="prog"></div>
+      <div class="qNum" id="qNum"></div>
+      <div class="qTxt" id="qTxt"></div>
+      <div class="qExp" id="qExp"></div>
+      <details id="qDonde"><summary>🔎 ¿Dónde verifico este dato?</summary><div id="qDondeTxt"></div></details>
+      <div class="opts">
+        <button onclick="resp('si')">Sí</button>
+        <button onclick="resp('no')">No</button>
+        <button onclick="resp('ns')">No estoy seguro</button>
+      </div>
+      <button class="back" onclick="atras()">← Volver</button>
+    </div>
+
+    <!-- PASO C: RESULTADO -->
+    <div class="paso" id="pC">
+      <div class="resTitle" id="rTitle"></div>
+      <div id="rMotivos"></div>
+      <div id="rPasos"></div>
+      <div class="leadBox" id="lead">
+        <p id="leadTitulo">📲 Te acompañamos por WhatsApp</p>
+        <small id="leadSub">Déjanos tu nombre y te escribimos con tu checklist personalizado y un recordatorio antes de tu fecha. Sin costo ni compromiso.</small>
+        <input type="text" id="nom" placeholder="Tu nombre">
+        <div style="height:8px"></div>
+        <input type="tel" id="tel" placeholder="Tu WhatsApp (opcional)">
+        <a class="btn wa" id="wa" href="#" target="_blank">💬 Hablar con RentaIA por WhatsApp</a>
+        <div class="precio" id="precios">
+          <div class="rec"><b id="pHacemos">$180.000</b>Te lo hacemos: solo envías tus certificados</div>
+          <div><b id="pGuiado">$99.000</b>Guiado: lo haces tú con la app y nuestro apoyo</div>
+        </div>
+      </div>
+      <button class="btn sec" onclick="irDocs()">📄 Ver qué papeles necesito y cómo pagar MENOS impuesto</button>
+      <button class="back" onclick="reiniciar()">↺ Empezar de nuevo</button>
+    </div>
+
+    <!-- PASO D: DOCUMENTOS + BENEFICIOS -->
+    <div class="paso" id="pD">
+      <h3>📄 Papeles para tu declaración</h3>
+      <div class="sub">Marca lo que ya tienes o <b>adjunta el archivo</b> que te entregó cada entidad. 🔒 Los archivos <b>no se suben a ningún servidor</b>: quedan en tu equipo y tú los envías por WhatsApp.</div>
+      <div id="docsCont"></div>
+      <div class="dias ok" id="docsProg" style="margin-top:12px;"></div>
+      <a class="btn wa" id="waDocs" href="#" target="_blank">💬 Enviar mi checklist a RentaIA (adjunta los archivos en el chat)</a>
+
+      <h3 style="margin-top:24px;">💰 Cómo pagar MENOS renta (legalmente)</h3>
+      <div class="sub">Cada beneficio bien soportado baja tu impuesto. Esto es lo que la mayoría deja de usar:</div>
+      <div id="benefCont"></div>
+      <button class="btn" onclick="show('pC')">← Volver a mi resultado</button>
+      <button class="back" onclick="reiniciar()">↺ Empezar de nuevo</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CÓMO FUNCIONA ============ -->
+<section class="wrap">
+  <h2>Así de simple funciona</h2>
+  <div class="sub2">Sin filas, sin contadores costosos, sin entregar tus contraseñas. Nunca te pedimos claves de la DIAN.</div>
+  <div class="grid3">
+    <div class="vCard"><div class="ic">1️⃣</div><b>Envías tus certificados</b><p>Por WhatsApp, con el checklist exacto que te damos según tu caso (empleado, independiente, pensionado).</p></div>
+    <div class="vCard"><div class="ic">2️⃣</div><b>La elaboramos y optimizamos</b><p>Borrador del Formulario 210 en 24 h + informe claro de cuánto pagas y cuánto te ahorramos, con cada deducción aplicada.</p></div>
+    <div class="vCard"><div class="ic">3️⃣</div><b>Presentas acompañado</b><p>Te guiamos paso a paso en el portal de la DIAN (MUISCA) hasta que quede presentada. Tú siempre tienes el control.</p></div>
+  </div>
+</section>
+
+<!-- ============ PLANES ============ -->
+<section class="wrap" id="planes">
+  <h2>Planes</h2>
+  <div class="sub2">Todos cuestan menos que la sanción mínima por declarar tarde ($523.740). Pago: 50% al iniciar, 50% contra borrador (Nequi o transferencia).</div>
+  <div class="planes">
+    <div class="plan">
+      <b>Guiado con la app</b>
+      <div class="pr">$99.000</div>
+      <div class="ex">⚡ Exprés (vence hoy/mañana): $249.000</div>
+      <p>Cargas tus datos en nuestra app de RentaIA con acompañamiento por WhatsApp. Recibes borrador + informe en 24 h.</p>
+      <a href="https://wa.me/573125524920?text=Hola%20RentaIA%20👋%20quiero%20el%20plan%20GUIADO%20($99.000)">Elegir por WhatsApp</a>
+    </div>
+    <div class="plan dest">
+      <b>Te lo hacemos</b>
+      <div class="pr">$180.000</div>
+      <div class="ex">⚡ Exprés (hoy mismo): $449.000</div>
+      <p>Solo envías tus certificados por WhatsApp. Elaboramos tu declaración optimizada, te explicamos el resultado y te acompañamos a presentarla.</p>
+      <a href="https://wa.me/573125524920?text=Hola%20RentaIA%20👋%20quiero%20el%20plan%20TE%20LO%20HACEMOS%20($180.000)">Elegir por WhatsApp</a>
+    </div>
+    <div class="plan">
+      <b>🎯 Plan de Ahorro Fiscal</b>
+      <div class="pr">$150.000</div>
+      <div class="ex">$99.000 si ya tomaste otro plan</div>
+      <p>Para pagar MENOS el próximo año: cuánto meter a AFC/pensión voluntaria, qué certificar de dependientes y qué abrir antes de dic-2026, con el ahorro proyectado en pesos.</p>
+      <a href="https://wa.me/573125524920?text=Hola%20RentaIA%20👋%20quiero%20el%20PLAN%20DE%20AHORRO%20FISCAL">Elegir por WhatsApp</a>
+    </div>
+  </div>
+  <div class="garantia">✅ Si la DIAN te requiere por un error de nuestro cálculo, la revisión corre por nuestra cuenta.</div>
+  <div class="disc"><b>Transparencia:</b> RentaIA es un servicio de elaboración, optimización y acompañamiento para personas naturales. La presentación oficial la haces tú acompañado por nosotros (nunca pedimos tus contraseñas). No firmamos como contador: si tu caso lo exige (obligados a llevar contabilidad con patrimonio/ingresos > 100.000 UVT), te conectamos con un contador aliado. El ahorro depende de cada caso y toda recomendación se valida con la norma vigente.</div>
+</section>
+
+<footer class="wrap">
+  <b>RentaIA</b> · Declaración de renta personas naturales · Temporada 2026 (AG2025)<br>
+  Calendario oficial DIAN 2026 · Topes año gravable 2025 (UVT $49.799) · Sanción mínima 2026: $523.740<br>
+  Versión preliminar para retroalimentación — ¿opiniones? Escríbenos por WhatsApp 💬
+</footer>
+
+<script>
+const WHATSAPP = '573125524920'; // número real configurado 2026-07-03
+
+/* ===== Calendario DIAN 2026 (AG2025): fechas por pares de dígitos 01-02 … 99-00 ===== */
+const FECHAS = ['08-12','08-13','08-14','08-18','08-19','08-20','08-21','08-24','08-25','08-26',
+'08-27','08-28','08-31','09-01','09-02','09-03','09-04','09-07','09-08','09-09',
+'09-10','09-11','09-14','09-15','09-16','09-17','09-18','09-21','09-22','09-23',
+'09-24','09-25','09-28','10-01','10-02','10-05','10-06','10-07','10-08','10-09',
+'10-13','10-14','10-15','10-16','10-19','10-20','10-21','10-22','10-23','10-26'];
+const MES = {'08':'agosto','09':'septiembre','10':'octubre'};
+
+/* ===== Topes AG2025 — UVT 2025 = $49.799 ===== */
+const T14 = '$69.718.600';   // 1.400 UVT
+const T45 = '$224.095.500';  // 4.500 UVT
+
+/* ===== Preguntas del quiz ===== */
+const QS = [
+ {k:'res', t:'¿Viviste en Colombia la mayor parte de 2025?',
+  e:'Cuenta si estuviste en el país <b>183 días o más</b> (seguidos o no) entre 2024 y 2025. Si vives en el exterior las reglas son distintas — respóndenos por WhatsApp y lo revisamos.',
+  d:'Suma tus días de permanencia en Colombia. Sellos de pasaporte o tiquetes sirven de referencia. La gran mayoría de personas que viven y trabajan aquí son residentes fiscales.'},
+ {k:'ing', t:'¿Tus INGRESOS totales de 2025 fueron '+T14+' o más?',
+  e:'Es el tope más común: <b>1.400 UVT = '+T14+'</b>, unos <b>$5,8 millones al mes en promedio</b>. Suma TODO lo que te entró en bruto, antes de descuentos: salario + primas + cesantías + horas extra + honorarios + comisiones + arriendos + pensiones + ventas + rendimientos bancarios. Si con todo sumado rozas esa cifra, probablemente estás obligado.',
+  d:'Pide a tu empleador el <b>Certificado de Ingresos y Retenciones 2025</b> (te lo deben dar cada año). Si eres independiente, suma tus cuentas de cobro o facturas. Agrega lo que digan tus certificados bancarios de rendimientos.'},
+ {k:'pat', t:'¿Tu PATRIMONIO al 31 de diciembre de 2025 era '+T45+' o más?',
+  e:'Tope: <b>4.500 UVT = '+T45+'</b>. Suma el valor de TODO lo que tenías ese día: casa o apartamento, carro o moto, saldos en cuentas, CDTs, inversiones, criptomonedas. ⚠️ Es el valor <b>BRUTO, sin restar deudas</b>: si tu apartamento vale $250M aunque le debas $200M al banco, ya superaste el tope.',
+  d:'Inmuebles: avalúo catastral (recibo del predial) o costo de compra, el mayor. Vehículos: valor de la tabla Fasecolda o del impuesto vehicular. Cuentas y CDTs: saldo del extracto al 31-dic-2025.'},
+ {k:'tar', t:'¿Tus compras con TARJETA DE CRÉDITO en 2025 sumaron '+T14+' o más?',
+  e:'Tope: <b>1.400 UVT = '+T14+'</b>. Suma los consumos de TODAS tus tarjetas de crédito durante el año. ⚠️ También cuentan los avances en efectivo y las compras de otras personas que pasaste por tu tarjeta ("préstame tu cupo").',
+  d:'Revisa los extractos de enero a diciembre de cada tarjeta, o pide al banco el certificado anual de movimientos. Los bancos le reportan esto a la DIAN automáticamente.'},
+ {k:'com', t:'¿Tus COMPRAS Y GASTOS totales de 2025 sumaron '+T14+' o más?',
+  e:'Tope: <b>1.400 UVT = '+T14+'</b>. Aquí entra todo lo que gastaste por cualquier medio: mercado, arriendo, educación, viajes, compras grandes (carro, moto, enganche de vivienda). Una sola compra grande puede hacerte superar el tope.',
+  d:'Revisa tus extractos bancarios y facturas grandes del año. Si compraste vehículo o inmueble, ese solo valor puede superar el tope.'},
+ {k:'con', t:'¿Tus CONSIGNACIONES, depósitos o inversiones de 2025 sumaron '+T14+' o más?',
+  e:'Tope: <b>1.400 UVT = '+T14+'</b>. 🚨 <b>El más traicionero de todos</b>: cuenta TODO lo que entró a tus cuentas, aunque no sea ingreso tuyo — transferencias entre tus propias cuentas, Nequi/Daviplata que te mandan y devuelves, plata de terceros que "te pasan para que pagues algo". Mucha gente queda obligada sin saberlo por esto.',
+  d:'Pide a cada banco el <b>certificado anual de movimientos/consignaciones 2025</b>. También puedes ver lo que reportaron por ti en la DIAN (información exógena) con tu usuario MUISCA.'},
+ {k:'iva', t:'¿Fuiste RESPONSABLE DE IVA en 2025?',
+  e:'Si vendes productos o servicios gravados con IVA y en tu <b>RUT</b> figura la responsabilidad "48 – Impuesto sobre las ventas", estás obligado a declarar renta <b>sin importar cuánto ganaste</b>. La mayoría de empleados y pequeños independientes NO son responsables de IVA.',
+  d:'Descarga tu RUT en muisca.dian.gov.co y mira la casilla 53 (responsabilidades). Si aparece el código 48, eres responsable de IVA.'}
+];
+
+let idx = 0;
+const RESP = {};
+let fechaTxt = '', diasRest = null;
+
+/* ===== Paso A: fecha ===== */
+function calcFecha(){
+  const el = document.getElementById('ced');
+  const v = el.value.replace(/\D/g,'');
+  el.value = v;
+  const box = document.getElementById('fBox');
+  if(v.length < 2){ box.style.display='none'; return; }
+  const dd2 = v.slice(-2);
+  const n = dd2 === '00' ? 100 : parseInt(dd2,10);
+  const f = FECHAS[Math.ceil(n/2)-1];
+  const [mm,dd] = f.split('-');
+  const fecha = new Date(`2026-${f}T23:59:59-05:00`);
+  diasRest = Math.ceil((fecha - new Date())/864e5);
+  fechaTxt = `${parseInt(dd)} de ${MES[mm]} de 2026`;
+  document.getElementById('fecha').textContent = fechaTxt + ` (dígitos ${dd2})`;
+  const dEl = document.getElementById('dias');
+  if(diasRest < 0){ dEl.textContent = `⚠️ Tu plazo venció hace ${-diasRest} días — cada mes suma 5% más de sanción, actúa YA`; dEl.className='dias bad'; }
+  else if(diasRest <= 30){ dEl.textContent = `⏳ Te quedan solo ${diasRest} días`; dEl.className='dias warn'; }
+  else { dEl.textContent = `Te quedan ${diasRest} días — tiempo perfecto para organizarte y pagar menos`; dEl.className='dias ok'; }
+  box.style.display='block';
+}
+
+/* ===== Paso B: quiz ===== */
+function irQuiz(){ idx = 0; show('pB'); pinta(); }
+function pinta(){
+  const q = QS[idx];
+  document.getElementById('prog').innerHTML = QS.map((_,i)=>`<i class="${i<=idx?'done':''}"></i>`).join('');
+  document.getElementById('qNum').textContent = `PREGUNTA ${idx+1} DE ${QS.length}`;
+  document.getElementById('qTxt').textContent = q.t;
+  document.getElementById('qExp').innerHTML = q.e;
+  document.getElementById('qDondeTxt').innerHTML = q.d;
+  document.getElementById('qDonde').open = false;
+}
+function resp(v){
+  RESP[QS[idx].k] = v;
+  if(idx < QS.length-1){ idx++; pinta(); } else { resultado(); }
+}
+function atras(){
+  if(idx === 0){ show('pA'); } else { idx--; pinta(); }
+}
+
+/* ===== Paso C: resultado ===== */
+const NOMBRE_TOPE = {ing:'Ingresos ≥ '+T14, pat:'Patrimonio ≥ '+T45, tar:'Tarjeta de crédito ≥ '+T14, com:'Compras ≥ '+T14, con:'Consignaciones ≥ '+T14, iva:'Responsable de IVA'};
+function resultado(){
+  const topes = ['ing','pat','tar','com','con','iva'];
+  const si = topes.filter(k=>RESP[k]==='si');
+  const ns = topes.filter(k=>RESP[k]==='ns');
+  const rT = document.getElementById('rTitle');
+  const rM = document.getElementById('rMotivos');
+  const rP = document.getElementById('rPasos');
+  let estado, msj;
+  const noRes = RESP.res !== 'si';
+  const avisoRes = noRes ? `<div class="motivo">⚠️ Indicaste que <b>no viviste (o no estás seguro de haber vivido) la mayor parte del año en Colombia</b>. Para no residentes aplican reglas y topes distintos (arts. 407–409 ET) — este resultado es orientativo. Escríbenos y revisamos tu caso puntual.</div>` : '';
+
+  if(si.length){
+    estado = 'DEBO DECLARAR';
+    rT.textContent = '📋 Sí: estás obligado a declarar';
+    rT.className = 'resTitle si';
+    rM.innerHTML = avisoRes + si.map(k=>`<div class="motivo">Superaste el tope: <b>${NOMBRE_TOPE[k]}</b></div>`).join('') +
+      `<div class="motivo">Basta con superar <b>UN solo tope</b> para quedar obligado. Pero tranquilo: estar obligado a declarar <b>NO significa pagar</b> — la mayoría en tu caso paga $0 o muy poco si la declaración se hace bien. Lo único costoso es <b>no presentarla a tiempo</b>: sanción mínima <b>$523.740</b>.</div>`;
+    rP.innerHTML = `<div class="lbl">✅ Tu paso a paso:</div><ol class="pasos">
+      <li><b>Agenda tu fecha límite${fechaTxt?': '+fechaTxt:''}</b> — un día tarde ya genera sanción.</li>
+      <li><b>Verifica tu RUT</b> y tu usuario en muisca.dian.gov.co (si no lo tienes, se crea gratis en minutos).</li>
+      <li><b>Descarga tu información reportada</b> (exógena): la DIAN ya sabe qué te consignaron los bancos y qué te pagó tu empleador.</li>
+      <li><b>Reúne tus certificados</b>: ingresos y retenciones, saldos bancarios, aportes a salud/pensión, intereses de vivienda, medicina prepagada, dependientes.</li>
+      <li><b>Calcula y optimiza</b>: cada deducción bien aplicada baja el impuesto. Envíanos tus certificados y te lo hacemos.</li>
+      <li><b>Presenta antes de tu fecha</b> en MUISCA (te acompañamos en el paso a paso).</li></ol>`;
+    msj = `Hola RentaIA 👋 Hice el test y ESTOY OBLIGADO a declarar (${si.map(k=>NOMBRE_TOPE[k]).join(' · ')}). ${fechaTxt?`Mi plazo vence el ${fechaTxt}. `:''}Quiero que me ayuden con mi declaración.`;
+    document.getElementById('leadTitulo').textContent = '📲 Nosotros te la hacemos, tú solo envías los certificados';
+  } else if(ns.length){
+    estado = 'ZONA GRIS';
+    rT.textContent = '🟡 Aún no es claro: valida estos datos';
+    rT.className = 'resTitle gris';
+    rM.innerHTML = avisoRes + `<div class="motivo">No marcaste ningún tope superado, pero respondiste "no estoy seguro" en <b>${ns.length}</b> punto(s). Con superar UN solo tope quedas obligado, así que vale la pena confirmarlo — la sanción por no declarar debiendo hacerlo arranca en <b>$523.740</b>.</div>`;
+    rP.innerHTML = `<div class="lbl">🔎 Cómo validar lo que te falta:</div><ol class="pasos">` +
+      ns.map(k=>{
+        const gu = {ing:'Pide tu <b>Certificado de Ingresos y Retenciones 2025</b> a tu empleador, o suma tus cuentas de cobro. Compara contra '+T14+'.',
+          pat:'Suma avalúo catastral de inmuebles + valor Fasecolda de vehículos + saldos al 31-dic. Compara contra '+T45+' (sin restar deudas).',
+          tar:'Pide a tu banco el <b>certificado anual de tarjeta de crédito 2025</b> o suma los 12 extractos. Compara contra '+T14+'.',
+          com:'Revisa extractos y facturas grandes (carro, moto, enganche). Compara contra '+T14+'.',
+          con:'Pide a CADA banco (incluye Nequi/Daviplata) el <b>certificado anual de movimientos 2025</b>. Recuerda: transferencias entre tus cuentas y plata de terceros CUENTAN. Compara contra '+T14+'.',
+          iva:'Descarga tu RUT en muisca.dian.gov.co y busca la responsabilidad <b>48 (IVA)</b> en la casilla 53.'}[k];
+        return `<li><b>${NOMBRE_TOPE[k].split(' ≥')[0]}:</b> ${gu}</li>`;
+      }).join('') +
+      `<li><b>¿Se te complica?</b> Mándanos foto de tus certificados por WhatsApp y te confirmamos GRATIS si debes declarar.</li></ol>`;
+    msj = `Hola RentaIA 👋 Hice el test y quedé en zona gris (dudas en: ${ns.map(k=>NOMBRE_TOPE[k].split(' ≥')[0]).join(', ')}). ${fechaTxt?`Mi plazo sería el ${fechaTxt}. `:''}¿Me ayudan a confirmar gratis si debo declarar?`;
+    document.getElementById('leadTitulo').textContent = '📲 Te confirmamos GRATIS si debes declarar';
+  } else {
+    estado = 'NO OBLIGADO';
+    rT.textContent = '✅ No estás obligado a declarar';
+    rT.className = 'resTitle no';
+    rM.innerHTML = avisoRes + `<div class="motivo">Según tus respuestas, en 2025 no superaste ningún tope. 🎉</div>
+      <div class="motivo">💡 <b>Dato que pocos saben:</b> si te hicieron <b>retención en la fuente</b> (revisa tu certificado de ingresos), puedes declarar <b>voluntariamente</b> y la DIAN podría <b>devolverte plata</b> (saldo a favor). Y si el otro año superas topes, planear desde ya (AFC, pensión voluntaria, dependientes) te ahorra impuesto.</div>`;
+    rP.innerHTML = '';
+    msj = `Hola RentaIA 👋 Hice el test y NO estoy obligado a declarar, pero quiero saber si tengo saldo a favor por retenciones (me podrían devolver plata).`;
+    document.getElementById('leadTitulo').textContent = '📲 Revisamos gratis si la DIAN te debe plata';
+  }
+
+  /* precios: exprés si el plazo está encima */
+  const expres = diasRest !== null && diasRest >= 0 && diasRest <= 2;
+  document.getElementById('pHacemos').textContent = expres ? '$449.000 ⚡' : '$180.000';
+  document.getElementById('pGuiado').textContent = expres ? '$249.000 ⚡' : '$99.000';
+  document.getElementById('precios').style.display = (estado==='NO OBLIGADO') ? 'none' : 'flex';
+
+  actualizarWa(msj);
+  document.getElementById('nom').oninput = ()=>actualizarWa(msj);
+  document.getElementById('tel').oninput = ()=>actualizarWa(msj);
+  show('pC');
+}
+
+function actualizarWa(base){
+  const nom = document.getElementById('nom').value.trim();
+  const tel = document.getElementById('tel').value.trim();
+  let m = base;
+  if(nom) m = m.replace('Hola RentaIA 👋', `Hola RentaIA 👋 Soy ${nom}.`);
+  if(tel) m += ` (Mi WhatsApp: ${tel})`;
+  document.getElementById('wa').href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(m)}`;
+}
+
+function show(id){
+  document.querySelectorAll('.paso').forEach(p=>p.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  document.getElementById('funnel').scrollIntoView({behavior:'smooth'});
+}
+
+/* ===== Paso D: documentos + beneficios ===== */
+const DOCS = [
+ {g:'🏦 PATRIMONIO (lo que tienes)', items:[
+  {id:'d1', t:'Certificados bancarios de cuentas de ahorro/corriente e inversiones', s:'Saldo al 31-dic-2025. Los emite cada banco (app o sucursal), incluye Nequi/Daviplata, CDTs y fondos.'},
+  {id:'d2', t:'Documentos de bienes inmuebles', s:'Recibo del impuesto predial 2025, escrituras o factura de compra de casa, apartamento o lote.'},
+  {id:'d3', t:'Documentos de vehículos', s:'Impuesto vehicular o tarjeta de propiedad (el valor se toma de tablas oficiales).'}]},
+ {g:'💳 DEUDAS (bajan tu patrimonio)', items:[
+  {id:'d4', t:'Soportes de deudas', s:'Letras, pagarés, hipotecas, certificado de saldo de créditos al 31-dic-2025 (el banco lo emite gratis).'}]},
+ {g:'💵 INGRESOS (lo que te entró)', items:[
+  {id:'d5', t:'Certificado de ingresos y retenciones 2025 (Formulario 220)', s:'Te lo entrega tu empleador. Es EL documento clave si eres empleado.'},
+  {id:'d6', t:'Certificados de salarios, indemnizaciones y primas especiales', s:'Indemnizaciones por accidente de trabajo o enfermedad, primas especiales, bonificaciones.'},
+  {id:'d7', t:'Cuentas de cobro / facturas (independientes)', s:'Si facturaste por honorarios o servicios, el resumen del año.'},
+  {id:'d8', t:'Certificados de rendimientos financieros', s:'Intereses que te pagaron bancos, CDTs, fondos o plataformas. Cada entidad lo emite.'}]},
+ {g:'🎯 BENEFICIOS (bajan tu impuesto)', items:[
+  {id:'d9', t:'Certificados de pagos de salud', s:'Medicina prepagada o pólizas de salud: certificado anual de la entidad (Colsanitas, Sura, etc.).'},
+  {id:'d10', t:'Certificado de intereses de crédito de vivienda', s:'Lo emite el banco de tu hipoteca o leasing habitacional. Deduce hasta $59,7M.'},
+  {id:'d11', t:'Facturas electrónicas de compras 2025', s:'Compras a tu nombre con factura electrónica: deducen el 1%. Descárgalas del portal de la DIAN.'},
+  {id:'d12', t:'Certificación de dependientes económicos', s:'Registro civil de hijos, certificado de estudios (18–23 años), certificación médica o declaración juramentada según el caso.'},
+  {id:'d13', t:'Certificados de aportes AFC y pensión voluntaria', s:'Los emite el fondo (Porvenir, Protección, banco con cuenta AFC).'},
+  {id:'d14', t:'Certificado del 4×1000 (GMF)', s:'El banco certifica cuánto pagaste: el 50% es deducible.'}]}
+];
+
+const BENEF = [
+ {t:'👨‍👩‍👧 Dependientes: hasta $14,3M de deducción', x:'<b>72 UVT ($3.585.528) por cada dependiente, máximo 4.</b> Cuentan: hijos menores de 18 (soporte: registro civil); hijos de 18–23 si les pagas la educación (certificado de estudios); hijos de cualquier edad con discapacidad (certificado médico); cónyuge o compañero(a) sin ingresos o con ingresos menores a 260 UVT (certificación de contador); y padres o hermanos que dependan económicamente de ti.', n:'Este beneficio NO entra en el tope del 40% — se suma aparte. Es de lo primero que revisamos.'},
+ {t:'🏠 Intereses de vivienda: hasta $59,7M', x:'Los intereses (no la cuota completa) de tu crédito hipotecario o leasing habitacional deducen hasta <b>1.200 UVT/año</b>. Soporte: certificado anual del banco.', n:''},
+ {t:'🏥 Medicina prepagada: hasta $9,5M', x:'Pagos a medicina prepagada o pólizas de salud deducen hasta <b>16 UVT/mes (192 UVT/año)</b>. Soporte: certificado anual de la entidad.', n:''},
+ {t:'💼 Renta exenta del 25% (empleados)', x:'El <b>25% de tus pagos laborales</b> es exento automáticamente (tope 790 UVT). No necesitas soporte: se aplica al calcular. Solo asegúrate de que te lo apliquen.', n:''},
+ {t:'🐷 AFC y pensión voluntaria: el más poderoso', x:'Lo que ahorres en cuenta <b>AFC</b> (para vivienda) o <b>pensión voluntaria</b> es renta exenta hasta el <b>30% de tu ingreso anual</b> (máx 3.800 UVT). Si abres una antes del 31-dic-2026, bajas la renta del próximo año.', n:'Es la base del Plan de Ahorro Fiscal que ofrecemos: te decimos cuánto meter para el máximo ahorro.'},
+ {t:'🧾 1% de compras con factura electrónica: hasta $11,9M', x:'El <b>1% de tus compras</b> con factura electrónica a tu nombre deduce hasta <b>240 UVT</b>, sin necesidad de que tengan relación con tu trabajo. Pide SIEMPRE factura electrónica con tu cédula.', n:'Tampoco entra en el tope del 40%. Casi nadie lo usa: es plata regalada.'},
+ {t:'🏦 4×1000 (GMF): el 50% deduce', x:'La mitad del gravamen a los movimientos financieros que pagaste en el año es deducible. Soporte: certificado del banco.', n:''},
+ {t:'⚖️ Ojo al tope global', x:'La mayoría de deducciones y rentas exentas juntas no pueden superar el <b>40% del ingreso depurado ni 1.340 UVT ($66,7M)</b>. Excepciones que van aparte: dependientes y el 1% de facturas. Por eso el orden en que se aplican importa — ahí está la optimización.', n:''}
+];
+
+const TIENE = {};
+function irDocs(){
+  if(!document.getElementById('docsCont').dataset.ok){ pintaDocs(); pintaBenef(); document.getElementById('docsCont').dataset.ok = 1; }
+  show('pD');
+}
+function pintaDocs(){
+  document.getElementById('docsCont').innerHTML = DOCS.map(g =>
+    `<div class="grupo">${g.g}</div>` + g.items.map(d =>
+      `<div class="doc" id="doc_${d.id}">
+        <input type="checkbox" onchange="chk('${d.id}',this.checked)">
+        <div class="dTxt">${d.t}<small>${d.s}</small><div class="dFile" id="f_${d.id}"></div></div>
+        <button class="adj" onclick="document.getElementById('in_${d.id}').click()">📎 Adjuntar</button>
+        <input type="file" id="in_${d.id}" multiple hidden onchange="adjunta('${d.id}',this)">
+      </div>`).join('')
+  ).join('');
+  progDocs();
+}
+function chk(id,v){
+  TIENE[id] = v ? (TIENE[id] && TIENE[id] !== true ? TIENE[id] : true) : false;
+  document.getElementById('doc_'+id).classList.toggle('tiene', !!TIENE[id]);
+  if(!v) document.getElementById('f_'+id).textContent = '';
+  progDocs();
+}
+function adjunta(id,inp){
+  if(!inp.files.length) return;
+  const noms = [...inp.files].map(f=>f.name).join(', ');
+  TIENE[id] = noms;
+  const doc = document.getElementById('doc_'+id);
+  doc.classList.add('tiene');
+  doc.querySelector('input[type=checkbox]').checked = true;
+  document.getElementById('f_'+id).textContent = '✓ ' + noms;
+  progDocs();
+}
+function progDocs(){
+  const all = DOCS.flatMap(g=>g.items);
+  const have = all.filter(d=>TIENE[d.id]);
+  document.getElementById('docsProg').textContent = `Tienes ${have.length} de ${all.length} documentos listos`;
+  const falta = all.filter(d=>!TIENE[d.id]).map(d=>'• '+d.t);
+  let m = `Hola RentaIA 👋 Este es mi checklist de documentos para la declaración${fechaTxt?` (mi plazo: ${fechaTxt})`:''}:\n\n✅ TENGO (${have.length}):\n${have.map(d=>'• '+d.t + (typeof TIENE[d.id]==='string'?` [${TIENE[d.id]}]`:'')).join('\n') || '• (ninguno aún)'}\n\n❌ ME FALTAN (${falta.length}):\n${falta.join('\n') || '• ¡Nada, los tengo todos!'}\n\nLes adjunto los archivos en este chat.`;
+  const nom = document.getElementById('nom').value.trim();
+  if(nom) m = m.replace('Hola RentaIA 👋', `Hola RentaIA 👋 Soy ${nom}.`);
+  document.getElementById('waDocs').href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(m)}`;
+}
+function pintaBenef(){
+  document.getElementById('benefCont').innerHTML = BENEF.map(b =>
+    `<div class="benef"><b class="tit">${b.t}</b>${b.x}${b.n?`<small>💡 ${b.n}</small>`:''}</div>`).join('');
+}
+
+function reiniciar(){
+  Object.keys(RESP).forEach(k=>delete RESP[k]);
+  idx = 0;
+  document.getElementById('ced').value=''; document.getElementById('fBox').style.display='none';
+  document.getElementById('nom').value=''; document.getElementById('tel').value='';
+  fechaTxt=''; diasRest=null;
+  show('pA');
+}
+</script>
+</body>
+</html>
