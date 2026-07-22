@@ -5,20 +5,50 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RentaIA — Tu declaración de renta 2026 lista, sin enredos y pagando lo justo</title>
 <meta name="description" content="Diagnóstico gratis: descubre si debes declarar renta en 2026, cuándo vence tu plazo y qué documentos necesitas. Te la hacemos desde $99.000.">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--p:#059669;--p2:#047857;--d:#0f172a;--g:#64748b;--bg:#ecfdf5;--line:#a7f3d0;--warn:#d97706;--warnbg:#fef3c7;--bad:#dc2626;--badbg:#fee2e2;--okbg:#ecfdf5;--amber:#fbbf24;}
-  *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Segoe UI,Roboto,sans-serif;}
+  :root{--p:#15756a;--p2:#0e574f;--d:#14302b;--g:#5c6b67;--bg:#f5efe2;--line:#cfe6dd;--warn:#b9770f;--warnbg:#f8ecd0;--bad:#b23b26;--badbg:#f7e0d8;--okbg:#e8f3ee;--amber:#e7a83c;}
+  *{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',system-ui,Segoe UI,Roboto,sans-serif;}
+  h1,h2,h3,.logo,.plan .pr,.fecha,.resTitle{font-family:'Poppins','Inter',system-ui,sans-serif;letter-spacing:-.01em;}
   body{background:var(--bg);color:var(--d);line-height:1.55;}
   .wrap{max-width:860px;margin:0 auto;padding:0 18px;}
 
   /* ===== HERO ===== */
-  header{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;padding:56px 0 48px;text-align:center;}
+  header{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;padding:40px 0 44px;}
+  .heroWrap{display:flex;align-items:center;gap:30px;}
+  .heroText{flex:1;text-align:left;}
+  .heroMascot{flex:0 0 300px;text-align:center;}
+  .heroMascot img{width:100%;max-width:320px;border-radius:22px;box-shadow:0 12px 30px rgba(0,0,0,.18);}
+  .logoImg{height:70px;margin-bottom:16px;background:#fff;padding:8px 14px;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.14);}
   .logo{font-size:.85rem;letter-spacing:3px;font-weight:800;opacity:.9;}
-  header h1{font-size:2.1rem;margin:10px 0 12px;line-height:1.2;}
-  header p{font-size:1.08rem;opacity:.95;max-width:600px;margin:0 auto;}
+  header h1{font-size:2.4rem;margin:4px 0 12px;line-height:1.12;}
+  header p{font-size:1.08rem;opacity:.96;max-width:560px;}
   .heroBadge{display:inline-block;margin-top:14px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 16px;font-size:.82rem;font-weight:700;}
-  .ctaHero{display:inline-block;margin:22px 8px 0;background:var(--amber);color:#422006;text-decoration:none;padding:14px 30px;border-radius:12px;font-weight:800;font-size:1.02rem;}
+  .heroCtas{margin-top:6px;}
+  .ctaHero{display:inline-block;margin:22px 10px 0 0;background:var(--amber);color:#3d2400;text-decoration:none;padding:14px 28px;border-radius:12px;font-weight:800;font-size:1.02rem;}
   .ctaHero.sec{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.4);}
+  .heroTrust{margin-top:18px;font-size:.82rem;opacity:.95;}
+  .topnav{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .navwrap{display:flex;align-items:center;justify-content:space-between;padding:9px 0;}
+  .navlogo{height:64px;}
+  .navcta{background:var(--p);color:#fff;text-decoration:none;font-weight:800;font-size:.9rem;padding:10px 18px;border-radius:10px;}
+  .statsband{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:24px 0 4px;}
+  .stat{text-align:center;}
+  .stat b{display:block;font-family:'Poppins','Inter',sans-serif;font-size:1.45rem;color:var(--p2);}
+  .stat span{font-size:.82rem;color:var(--g);}
+  .stat + .stat{border-left:1px solid var(--line);}
+  .site-footer{background:var(--p2);color:#cfe6dd;margin-top:30px;padding:0;text-align:left;}
+  .footwrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;padding:34px 18px 18px;}
+  .footcol b{color:#fff;display:block;margin-bottom:8px;font-size:.9rem;}
+  .footcol a,.footcol span{display:block;color:#bcdcd3;text-decoration:none;font-size:.85rem;margin-bottom:6px;}
+  .footcol a:hover{color:#fff;}
+  .footlogo{font-family:'Poppins','Inter',sans-serif;font-weight:800;font-size:1.5rem;color:#fff;}
+  .footlogo span{color:#a7d7c5;}
+  .footbrand p{font-size:.85rem;color:#bcdcd3;margin-top:8px;max-width:260px;}
+  .footbar{border-top:1px solid rgba(255,255,255,.15);padding:14px 18px;font-size:.74rem;color:#a7c7bf;text-align:center;}
 
   /* ===== SECCIONES ===== */
   section{padding:44px 0;}
@@ -105,33 +135,47 @@
   .disc{background:var(--warnbg);border:1px solid #fcd34d;color:#92400e;border-radius:12px;padding:14px 16px;font-size:.83rem;margin-top:20px;line-height:1.5;}
   .garantia{text-align:center;font-size:.88rem;color:var(--p2);font-weight:700;margin-top:16px;}
   footer{text-align:center;color:var(--g);padding:34px 0;font-size:.8rem;line-height:1.6;}
-  @media(max-width:680px){.grid3,.planes{grid-template-columns:1fr;}header h1{font-size:1.6rem;}}
+  @media(max-width:680px){.grid3,.planes{grid-template-columns:1fr;}header h1{font-size:1.75rem;}.heroWrap{flex-direction:column;text-align:center;}.heroText{text-align:center;}.heroMascot{flex:none;}.heroMascot img{max-width:230px;}.ctaHero{margin:14px 5px 0;}.navlogo{height:52px;}.navcta{font-size:.78rem;padding:8px 12px;}.statsband{gap:8px;}.stat b{font-size:1.15rem;}}
 </style>
 </head>
 <body>
 
+<nav class="topnav"><div class="wrap navwrap">
+  <img class="navlogo" src="logo.png" alt="RentaIA — renta resuelta">
+  <a class="navcta" href="https://wa.me/573125524920?text=Hola%20RentaIA%20👋%20quiero%20mi%20declaraci%C3%B3n%20de%20renta">Escríbenos por WhatsApp</a>
+</div></nav>
+
 <!-- ============ HERO ============ -->
 <header>
-  <div class="wrap">
-    <div class="logo">RENTAIA</div>
-    <h1>Tu declaración de renta, lista en 24 horas</h1>
-    <p>Envías tus certificados por WhatsApp y recibes tu declaración elaborada, optimizada y explicada. <b>Desde $99.000</b> — pedir con tiempo tiene premio.</p>
-    <div class="heroBadge">⏰ Plazos DIAN 2026: del 12 de agosto al 26 de octubre</div>
-    <br>
-    <a class="ctaHero" href="#funnel">Diagnóstico gratis: ¿debo declarar? →</a>
-    <a class="ctaHero sec" href="https://wa.me/573125524920?text=Hola%20RentaIA%20👋%20quiero%20que%20me%20hagan%20mi%20declaraci%C3%B3n%20de%20renta">💬 Hablar por WhatsApp</a>
-    <div style="margin-top:18px;font-size:.82rem;opacity:.95;">✔ Cálculo verificado contra la DIAN &nbsp;·&nbsp; ✔ Nunca pedimos tus claves &nbsp;·&nbsp; ✔ Atención humana por WhatsApp</div>
+  <div class="wrap heroWrap">
+    <div class="heroText">
+      <h1>Tu declaración de renta, <span style="color:#ffe6a3;">resuelta</span>.</h1>
+      <p>Envías tus certificados por WhatsApp y recibes tu declaración <b>lista en 24 horas</b>, optimizada y explicada. Desde <b>$99.000</b> — pedir con tiempo tiene premio.</p>
+      <div class="heroBadge">⏰ Plazos DIAN 2026: del 12 de agosto al 26 de octubre</div>
+      <div class="heroCtas">
+        <a class="ctaHero" href="#funnel">Diagnóstico gratis: ¿debo declarar? →</a>
+        <a class="ctaHero sec" href="https://wa.me/573125524920?text=Hola%20RentaIA%20👋%20quiero%20que%20me%20hagan%20mi%20declaraci%C3%B3n%20de%20renta">💬 Hablar por WhatsApp</a>
+      </div>
+      <div class="heroTrust">✔ Cálculo verificado contra la DIAN &nbsp;·&nbsp; ✔ Nunca pedimos tus claves &nbsp;·&nbsp; ✔ Atención humana</div>
+    </div>
+    <div class="heroMascot"><img src="mascota.png" alt="Mascota RentaIA"></div>
   </div>
 </header>
+
+<section class="wrap statsband">
+  <div class="stat"><b>$523.740</b><span>sanción mínima que te evitas</span></div>
+  <div class="stat"><b>Desde $99.000</b><span>otras plataformas: $170k–$550k</span></div>
+  <div class="stat"><b>Verificado</b><span>cálculo cotejado con la DIAN</span></div>
+</section>
 
 <!-- ============ CONFIANZA ============ -->
 <section class="wrap">
   <h2>Por qué puedes confiar</h2>
   <div class="sub2">Tu declaración es algo serio. Así trabajamos:</div>
   <div class="grid3">
-    <div class="vCard"><div class="ic">🎯</div><b>Cálculo verificado</b><p>Nuestro motor reproduce el cálculo oficial de la DIAN peso por peso, validado con casos reales. Recibes el detalle casilla por casilla: ves de dónde sale cada cifra, sin misterios.</p></div>
-    <div class="vCard"><div class="ic">🔐</div><b>Tus claves son tuyas</b><p>Nunca te pedimos contraseñas de la DIAN ni del banco. Tú presentas desde tu usuario y nosotros te guiamos paso a paso.</p></div>
-    <div class="vCard"><div class="ic">🤝</div><b>Atención de verdad</b><p>Una persona real responde tu WhatsApp, te explica cada número y revisa contigo el borrador hasta que estés tranquilo.</p></div>
+    <div class="vCard"><div class="ic"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--p)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div><b>Cálculo verificado</b><p>Nuestro motor reproduce el cálculo oficial de la DIAN peso por peso, validado con casos reales. Recibes el detalle casilla por casilla: ves de dónde sale cada cifra, sin misterios.</p></div>
+    <div class="vCard"><div class="ic"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--p)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><b>Tus claves son tuyas</b><p>Nunca te pedimos contraseñas de la DIAN ni del banco. Tú presentas desde tu usuario y nosotros te guiamos paso a paso.</p></div>
+    <div class="vCard"><div class="ic"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--p)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg></div><b>Atención de verdad</b><p>Una persona real responde tu WhatsApp, te explica cada número y revisa contigo el borrador hasta que estés tranquilo.</p></div>
   </div>
 </section>
 
@@ -315,10 +359,31 @@
   </details>
 </section>
 
-<footer class="wrap">
-  <b>RentaIA</b> · Declaración de renta personas naturales · Temporada 2026 (AG2025)<br>
-  Calendario oficial DIAN 2026 · Topes año gravable 2025 (UVT $49.799) · Sanción mínima 2026: $523.740<br>
-  ¿Dudas o comentarios? Escríbenos por WhatsApp 💬
+<footer class="site-footer">
+  <div class="footwrap">
+    <div class="footcol footbrand">
+      <div class="footlogo">RENTA<span>IA</span></div>
+      <p>Tu declaración de renta, resuelta. Personas naturales en Colombia.</p>
+    </div>
+    <div class="footcol">
+      <b>Servicio</b>
+      <a href="#funnel">Diagnóstico gratis</a>
+      <a href="#planes">Precio</a>
+      <a href="#documentos">Subir documentos</a>
+    </div>
+    <div class="footcol">
+      <b>Contacto</b>
+      <a href="https://wa.me/573125524920" target="_blank">WhatsApp 312 552 4920</a>
+      <span>Pago: Bre-B @casallas528</span>
+    </div>
+    <div class="footcol">
+      <b>Legal</b>
+      <span>Datos protegidos — Ley 1581 de 2012</span>
+      <span>Estimado preliminar; no es asesoría legal</span>
+      <span>Nunca pedimos tus claves de la DIAN</span>
+    </div>
+  </div>
+  <div class="footbar">RentaIA · Temporada 2026 (AG2025) · Calendario DIAN 2026 · UVT $49.799 · Sanción mínima $523.740 · La presentación la haces tú, con nuestra guía.</div>
 </footer>
 
 <script>
